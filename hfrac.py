@@ -40,10 +40,19 @@ if user_query:
             st.error("No authors found.")
         else:
             # Create a "Select" dropdown for disambiguation
-            # Format: "Name (Institution) - Cited by X"
             author_options = {}
             for r in results[:5]: # Top 5 results
-                institution = r.get('last_known_institution', {}).get('display_name', 'Unknown Affiliation')
+                
+                # --- FIX STARTS HERE ---
+                # safely get the first affiliation from the list
+                affiliations = r.get('affiliations', [])
+                if affiliations:
+                    # Get the institution name from the first item in the list
+                    institution = affiliations[0].get('institution', {}).get('display_name', 'No Affiliation')
+                else:
+                    institution = 'No Affiliation'
+                # --- FIX ENDS HERE ---
+
                 label = f"{r['display_name']} | {institution} | 📄 {r['works_count']} papers"
                 author_options[label] = r['id']
             
@@ -84,3 +93,4 @@ if selected_id and st.button("Calculate h-frac"):
             col2.metric("Papers Analyzed", len(works))
             
             st.info(f"**Explanation:** An h-frac of {h_frac} means this author has {h_frac} papers where their *fractional contribution* (citations ÷ author count) is at least {h_frac}.")
+
