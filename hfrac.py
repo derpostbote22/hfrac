@@ -93,4 +93,28 @@ if selected_id and st.button("Calculate h-frac"):
             col2.metric("Papers Analyzed", len(works))
             
             st.info(f"**Explanation:** An h-frac of {h_frac} means this author has {h_frac} papers where their *fractional contribution* (citations ÷ author count) is at least {h_frac}.")
+st.markdown(
+    """
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        color: grey;
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #eaeaea;
+    }
+    </style>
+    <div class="footer">
+        Based on the method from <a href='https://doi.org/10.1002/asi.20845' target="_blank">Egghe (2008)</a>.
+        Inspect underlying <a href='https://github.com/derpostbote22/hfrac' target="_blank">code</a>. 
+        By <a href='https://jacob-energy.me/' target="_blank">Jacob Thrän</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 
