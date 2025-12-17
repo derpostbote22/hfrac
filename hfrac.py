@@ -11,7 +11,7 @@ st.title("🔎 Smart h-frac Calculator")
 st.write("Enter a **Researcher Name** OR an **ORCID iD**.")
 
 # 1. Single Input Box for both Name or ORCID
-user_query = st.text_input("Search Researcher", placeholder="e.g. 'Geoffrey Hinton' or '0000-0003-4886-2024'")
+user_query = st.text_input("Search Researcher", placeholder="e.g. 'Jorge Hirsch' or '0000-0001-7175-3497'")
 
 selected_id = None
 
@@ -116,5 +116,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
