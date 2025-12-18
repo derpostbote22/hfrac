@@ -92,7 +92,7 @@ if selected_id and st.button("Calculate h-frac"):
             col1.metric("h-frac Index", h_frac)
             col2.metric("Papers Analyzed", len(works))
             
-            st.info(f"**Explanation:** An h-frac of {h_frac} means this author has {h_frac} papers where their *fractional contribution* (citations ÷ author count) is at least {h_frac}.")
+            st.info(f"**Explanation:** A h-frac of {h_frac} means this author has {h_frac} papers where their *fractional contribution* (citations ÷ author count) is at least {h_frac}.")
 st.markdown(
     """
     <style>
@@ -116,6 +116,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
